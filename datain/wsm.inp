@@ -1,0 +1,9 @@
+
+ &run
+  prefix   ="check",
+  var_datain   ="./",
+  var_dataout   ="../dataout/",
+  mynum = 1,
+  mcphys_type=5,
+  time=3600,
+ &end
