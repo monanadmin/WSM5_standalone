@@ -1,11 +1,34 @@
 DSRC2=../src
+
+# intel ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #F_COMP=ifort
 #F_OPTS= -O0 -r8 -check bounds -traceback -check uninit# -prof-gen #-fpe0
 
-F_COMP=gfortran
-F_OPTS= -O0 -fcheck=bounds -fbacktrace -ffree-line-length-200 # -fdefault-real-8
-#F_OPTS= -O0 -ffree-form -fno-range-check -ffree-line-length-none -Wall -fbacktrace -g -fcheck=bounds -fcheck=all -finit-real=nan  -fallow-argument-mismatch
+# gnu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#F_COMP=gfortran
+#F_OPTS= -O0 -fcheck=bounds -fbacktrace -ffree-line-length-200 # -fdefault-real-8
 
+# nvfortran (pgi) ~~~~~~~~~~~~~~~~~~~
+F_COMP=nvfortran
+F_OPTS= -O0 -g -Mbounds -traceback
+# useful flags:
+# -O[level]        - Optimization level. Where level in 0-4
+# -g               - Instructs the compiler to include symbolic debugging information in the object module; 
+#                    sets the optimization level to zero unless a -⁠O option is present on the command line.
+# -M[no]bounds     - Enables [disables] array bounds checking.
+# -[no]-traceback  - Adds debug information for runtime traceback for use with the environment variable NVCOMPILER_TERM. 
+# -r4 and -r8      - Interpret SINGLE / DOUBLE PRECISION variables as REAL
+# -mp[=gpu]        - Enable OpenMP directives and optionally enable target offload to GPUs.
+# -acc[=multicore] - Enable OpenACC directives, defaults to offload to GPUs, use "multicore" to target multicore CPUs.
+# -stdpar[=gpu]    - Enable parallelization of DO CONCURRENT to host or GPU
+# -Minfo           - The compiler will give feedback messages on what optimization it's applying or not able to apply.
+# -help -Minfo     - for the full list of sub-options.
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TODO - clean or document flags below
+#
+#F_OPTS= -O0 -ffree-form -fno-range-check -ffree-line-length-none -Wall -fbacktrace -g -fcheck=bounds -fcheck=all -finit-real=nan  -fallow-argument-mismatch
 #F_OPTS=  -O0 -fpe2 -ftrapuv -check bounds -traceback -init=snan,arrays  -check uninit  # -ftz  -check uninit -check all -g #-r8 
 #F_OPTS= -init=snan,arrays  -check uninit -fpe0 -ftrapuv  -traceback # -ftz  -check uninit -check all -g #-r8 
 #F_OPTS=  -O3  -convert big_endian  -fpe2 -ftrapuv -check bounds -traceback -init=snan,arrays  -check uninit  # -ftz  -check uninit -check all -g #-r8 
@@ -21,6 +44,8 @@ F_OPTS= -O0 -fcheck=bounds -fbacktrace -ffree-line-length-200 # -fdefault-real-8
 #F_OPTS=-O0 -fdefault-real-8 -fcheck=bounds -g -fcheck=all -finit-real=nan \
 # -fbacktrace -ffpe-trap=invalid,zero,overflow,underflow,denormal     
 #  -finit-real=zero -Wall
+
+
 
 LOADER=$(F_COMP)
 LOADER_OPTS=-v #-Bstatic -check_bounds -traceback #-Mlarge_arrays
