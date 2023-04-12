@@ -10,14 +10,15 @@ The Weather Research and Forecasting (WRF) model is an atmospheric simulation sy
 
 ### Compiling and running the code
 
-git clone https://github.com/monanadmin/WSM5_standalone.git
-cd WSM5_standalone
-git checkout develop
-cd datain
-wget http://ftp.cptec.inpe.br/pesquisa/dmdcc/monan/standalone_codes/WSM5/datain/WSM05_dataIn-03600-00001.bin
-cd ../scripts
-./WSM5_standalone.sh
-
+```
+$ git clone https://github.com/monanadmin/WSM5_standalone.git
+$ cd WSM5_standalone
+$ git checkout develop
+$ cd datain
+$ wget http://ftp.cptec.inpe.br/pesquisa/dmdcc/monan/standalone_codes/WSM5/datain/WSM05_dataIn-03600-00001.bin
+$ cd ../scripts
+$ ./WSM5_standalone.sh
+```
 
 ### WSM5 Cloud Microphysics Schema
 
