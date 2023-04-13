@@ -5,12 +5,12 @@ DSRC2=../src
 #F_OPTS= -O0 -r8 -check bounds -traceback -check uninit# -prof-gen #-fpe0
 
 # gnu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#F_COMP=gfortran
-#F_OPTS= -O0 -fcheck=bounds -fbacktrace -ffree-line-length-200 # -fdefault-real-8
+F_COMP=gfortran
+F_OPTS= -O0 -fcheck=bounds -fbacktrace -ffree-line-length-200 # -fdefault-real-8
 
 # nvfortran (pgi) ~~~~~~~~~~~~~~~~~~~
-F_COMP=nvfortran
-F_OPTS= -O0 -g -Mbounds -traceback
+# F_COMP=nvfortran
+# F_OPTS= -O0 -g -Mbounds -traceback
 # useful flags:
 # -O[level]        - Optimization level. Where level in 0-4
 # -g               - Instructs the compiler to include symbolic debugging information in the object module; 
