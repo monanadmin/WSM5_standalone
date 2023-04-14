@@ -29,6 +29,7 @@ function compare(file1,file2)
   'q ctlinfo'
   allVars =''
   difmaxima=1.E-6
+  incdenom=1.E-12
   resultaux = result
   say resultaux
 
@@ -73,7 +74,7 @@ function compare(file1,file2)
         'set z 'z
         'set t 't
 
-* Este trecho comentado é somente pra mostrar a variação das variáveis
+* Este trecho comentado serve para mostrar a variação das variáveis com relação ao seu range
 *        'c'
 *        'd 'var
 *        cada=sublin(result, 1)
@@ -125,7 +126,7 @@ function compare(file1,file2)
 
 *        d (rain.1-rrp.2)/(rain.1+1.E-12)
 
-        'd abs(('var'-'var'.2)/('var'+'difmaxima'))'
+        'd abs(('var'-'var'.2)/('var'+'incdenom'))'
         cada=sublin(result, 1)
         'cbarn'
         'draw title Diferenca das variaveis 'var
@@ -134,7 +135,7 @@ function compare(file1,file2)
         else
           varmax=subwrd(cada,4)
           if(varmax>difmaxima)
-            say '===> ATENÇÃO !!! Há diferencas maiores que 'difmaxima 'na variavel 'var' em z='z', t='t
+            say '===> ATENÇÃO !!! Diferença na variavel 'var' em z='z', t='t' foi de 'varmax' e superou 'difmaxima
            'printim 'var'_z'z'_t't'__diff.png'
 
            'c'
