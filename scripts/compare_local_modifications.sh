@@ -60,6 +60,9 @@
 echo -e "\n\nCompiling and executing WSM5"
 echo -e "==============================\n"
 
+./get_input_data.sh
+mv -f WSM05_dataIn-03600-00001.bin ../datain
+
 ./WSM5_standalone.sh
 echo -e "\n\nComparing binary diferences"
 echo -e "===========================\n"
