@@ -145,7 +145,7 @@ program wsm_test
    integer :: nvar_out
    
 !- read namelist  
-   open(15,file='wsm.inp',status='old',form='formatted')    
+   open(15,file='../datain/wsm.inp',status='old',form='formatted')    
     read(15,nml=run)
    close(15)
 

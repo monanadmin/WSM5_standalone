@@ -1,7 +1,7 @@
 
  &run
   prefix   ="check",
-  var_datain   ="./",
+  var_datain   ="../datain/",
   var_dataout   ="../dataout/",
   mynum = 1,
   mcphys_type=5,
