@@ -145,7 +145,7 @@ program wsm_test
    integer :: nvar_out
    
 !- read namelist  
-   open(15,file='wsm.inp',status='old',form='formatted')    
+   open(15,file='../datain/wsm.inp',status='old',form='formatted')    
     read(15,nml=run)
    close(15)
 
@@ -689,7 +689,7 @@ program wsm_test
     open(newunit = l_unit, file=trim(var_dataout)//trim(fileout)//".ctl", action='write', status='replace')
 
        fileout=trim(fileout)//".gra"
-       write(l_unit,2001) trim(fileout) 
+       write(l_unit,*) 'dset ^'//trim(fileout) 
        !writing others infos to ctl
        write(l_unit,*) 'undef -0.9990000E+34'
        write(l_unit,*) 'title WSM '
